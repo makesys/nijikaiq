@@ -1,0 +1,40 @@
+<%- model_class = Project -%>
+<div class="page-header">
+    <h1>プロジェクト詳細画面<%#=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+    <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+    <dd><%= @project.id %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+    <dd><%= @project.title %></dd>
+</dl>
+
+<h3> あなたの作成したクイズ</h3>
+<% if @members.empty? %>
+    <h5>クイズがありません。新規作成ボタンでクイズを作成してください。</h5>
+<% else %>
+    <table class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>title</th>
+            <th>created at</th>
+            <th>updated at</th>
+        </thead>
+
+        <tbody>
+            <% @members.each do |quiz| %>
+                <tr>
+                    <td><%= quiz.id %></td>
+                    <td><%= link_to quiz.quiz_title, quiz_path(quiz.id), :class => 'link' %></td>
+                    <td><%= quiz.created_at %></td>
+                    <td><%= quiz.updated_at %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>
+<h3><%= link_to "新規作成", new_quiz_path(:project_id=>@project.id), :class => 'btn' %></h3>
+
+<div class="form-actions">
+</div>

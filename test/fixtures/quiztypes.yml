@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quiztype_name: MyString
+  quiztype_description: MyString
+  quiztype_def1: 
+  ing: MyString
+  quiztype_def2: MyString
+  quiztype_def3: MyString
+  quiztype_def4: MyString
+  quiztype_def5: MyString
+  quiztype: MyString
+  _def6: MyString
+  quiztype_def7: MyString
+  quiztype_def8: MyString
+  quiztype_def9: MyString
+  quiztype_def10: 
+  g: MyString
+
+two:
+  quiztype_name: MyString
+  quiztype_description: MyString
+  quiztype_def1: 
+  ing: MyString
+  quiztype_def2: MyString
+  quiztype_def3: MyString
+  quiztype_def4: MyString
+  quiztype_def5: MyString
+  quiztype: MyString
+  _def6: MyString
+  quiztype_def7: MyString
+  quiztype_def8: MyString
+  quiztype_def9: MyString
+  quiztype_def10: 
+  g: MyString

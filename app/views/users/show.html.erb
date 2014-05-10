@@ -1,0 +1,50 @@
+<%- model_class = User -%>
+<% if signed_in? %>
+    サインインしているユーザー用のリンク
+<% else %>
+    サインインしていないユーザー用のリンク
+<% end %>
+<div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+    <dd><%= @user.name %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+    <dd><%= @user.email %></dd>
+</dl>
+
+<h3>Project一覧</h3>
+<% if !@user.projects.empty? %>
+    <table class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>title</th>
+            <th>created at</th>
+            <th>updated at</th>
+        </thead>
+
+        <tbody>
+            <% @user.projects.each do |proj| %>
+                <tr>
+                    <td><%= proj.id %></td>
+                    <td><%= link_to proj.title, project_path(proj.id), :class => 'link' %></td>
+                    <td><%= proj.created_at %></td>
+                    <td><%= proj.updated_at %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+    <h5>プロジェクトがありません。「新規作成」ボタンからプロジェクトを作成させてください。</h5>
+
+<% end %>
+<h3><%= link_to "新規作成", new_project_path(:user_id=>@user.id), :class => 'btn' %></h3>
+
+<div class="form-actions">
+    <%= link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn'  %> 
+    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(@user), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(@user),
+        :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger' %>
+    </div>

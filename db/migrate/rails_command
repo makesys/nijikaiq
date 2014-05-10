@@ -1,0 +1,3 @@
+rails generate model quiztype quiztype_name:string quiztype_description:string quiztype_def1:string quiztype_def2:string quiztype_def3:string quiztype_def4:string quiztype_def5:string quiztype_def6:string quiztype_def7:string quiztype_def8:string quiztype_def9:string quiztype_def10:string
+
+rails generate model q:
