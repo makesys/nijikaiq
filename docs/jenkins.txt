@@ -1,4 +1,1 @@
-ジェンキンスのtest
-
-test2
-test3
+http://makesys.net/jenkins/job/nijikaiq/build?token=nijikaiqnijikaiq
