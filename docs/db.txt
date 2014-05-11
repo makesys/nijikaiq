@@ -1,0 +1,7 @@
+CREATE USER rails_test IDENTIFIED BY [PASSWORD] 'rails_test';
+CREATE DATABASE nijikaiqdb_test CHARACTER SET utf8;
+GRANT ALL ON nijikaiqdb_test.* to rails_test@localhost;
+
+CREATE USER rails_pub IDENTIFIED BY [PASSWORD] 'rails_pub';
+CREATE DATABASE nijikaiqdb_pub CHARACTER SET utf8;
+GRANT ALL ON nijikaiqdb_production.* to rails_pub@localhost;
