@@ -6,9 +6,10 @@ class ApplicationController < ActionController::Base
     include UsersHelper
 
     def authorize
-        unless session[:userName]
+        unless signed_in?
             session[:jumpto] = request.parameters
-            redirect_to :controller => 'user', :action => 'login'
+#            redirect_to :controller => 'sessions', :action => 'new'
+            redirect_to "/signin"
         end
     end
 end

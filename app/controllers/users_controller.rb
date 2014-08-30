@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    skip_filter :authorize, :except=>:login
+    before_filter :authorize, :except=>:login
 
+    
     # GET /users
     # GET /users.json
     def index
@@ -29,7 +30,6 @@ class UsersController < ApplicationController
         Rails.logger.debug "--------------------------"
         Rails.logger.debug @user.inspect
         Rails.logger.debug "--------------------------"
-        binding.pry
         if @user.save
             Rails.logger.debug "--------------------------"
             Rails.logger.debug "成功"
@@ -88,6 +88,7 @@ class UsersController < ApplicationController
     end
 
     def loggedin
+        binding.pry
     end
 
     def logout

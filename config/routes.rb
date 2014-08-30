@@ -3,6 +3,7 @@ Nijikaiq::Application.routes.draw do
     get "top/home"
     get "top/help"
     get "top/aboutus"
+    get "users/login"
     resources :projects
     resources :quizzes
     resources :users

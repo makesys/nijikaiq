@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
     before_action :set_project, only: [:show, :edit, ]
+    before_filter :authorize
+
     def index
     end
 
@@ -7,9 +9,9 @@ class ProjectsController < ApplicationController
     end
 
     def show
-        Rails.logger.debug "aiueoiiejfiajfoawjo"
         @project = Project.find(params[:id])
         @members = @project.quizzes
+        session[:project_id]=params[:id]
     end
 
     def post

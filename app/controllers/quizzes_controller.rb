@@ -17,19 +17,11 @@ class QuizzesController < ApplicationController
     def new
         Rails.logger.debug "new----------------------------"
         @quiz = Quiz.new
-        # if project is related
-        #        if params[:project_id] != nil
-        session[:project_id] = params[:project_id]
         binding.pry
-        #  @project = Project.find(params[:project_id])
-        #  Rails.logger.debug @project.id
-        #  binding.pry_remote
-        #        end 
     end
 
     # GET /quizzes/1/edit
     def edit
-        #binding.pry
     end
 
     # POST /quizzes
@@ -38,6 +30,7 @@ class QuizzesController < ApplicationController
         @project = Project.find_by_id(session[:project_id])
         if @project then
             @quiz = @project.quizzes.build(quiz_params)
+            @quiz.owner_user_id = session[:user_id]
             respond_to do |format|
                 if @project.save
                     format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
@@ -49,6 +42,7 @@ class QuizzesController < ApplicationController
             end
         else
             @quiz = Quiz.new(quiz_params)
+            @quiz.owner_user_id = session[:user_id]
             respond_to do |format|
                 if @quiz.save
                     format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
