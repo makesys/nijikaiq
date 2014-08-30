@@ -1,15 +1,16 @@
 <%- model_class = Quiz -%>
 <div class="page-header">
-    <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+    <h1>クイズ詳細画面</h1>
+    <h2><%= @quiz.quiz_title%></h2>
 </div>
 
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th><strong><%= model_class.human_attribute_name(:id) %></strong></th>
-            <th><strong><%= model_class.human_attribute_name(:quiz_title) %></strong></th>
-            <th><strong><%= model_class.human_attribute_name(:owner_user_id) %></strong></th>
-            <th><strong><%= model_class.human_attribute_name(:quiz_text) %></strong></th>
+            <th><strong>ID<%#= model_class.human_attribute_name(:id) %></strong></th>
+            <th><strong>タイトル<%#= model_class.human_attribute_name(:quiz_title) %></strong></th>
+            <th><strong>作成者<%#= model_class.human_attribute_name(:owner_user_id) %></strong></th>
+            <th><strong>クイズ本文<%#= model_class.human_attribute_name(:quiz_text) %></strong></th>
         </tr>
     </thead>
     <tbody>

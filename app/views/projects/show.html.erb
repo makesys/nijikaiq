@@ -17,7 +17,8 @@
     <table class="table table-striped">
         <thead>
             <th>ID</th>
-            <th>title</th>
+            <th>タイトル</th>
+            <th>クイズ本文</th>
             <th>created at</th>
             <th>updated at</th>
         </thead>
@@ -27,6 +28,7 @@
                 <tr>
                     <td><%= quiz.id %></td>
                     <td><%= link_to quiz.quiz_title, quiz_path(quiz.id), :class => 'link' %></td>
+                    <td><%= quiz.quiz_text %></td>
                     <td><%= quiz.created_at %></td>
                     <td><%= quiz.updated_at %></td>
                 </tr>

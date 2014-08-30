@@ -29,13 +29,13 @@ class QuizzesController < ApplicationController
 
     # GET /quizzes/1/edit
     def edit
+        #binding.pry
     end
 
     # POST /quizzes
     # POST /quizzes.json
     def create
         @project = Project.find_by_id(session[:project_id])
-        binding.pry
         if @project then
             @quiz = @project.quizzes.build(quiz_params)
             respond_to do |format|
@@ -94,6 +94,6 @@ class QuizzesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-        params.require(:quiz).permit(:quiz_title, :owner_user_id, :quiz_text, :project_id)
+        params.require(:quiz).permit(:quiz_title, :owner_user_id, :quiz_text, :project_id, :quiz_parts1, :quiz_parts2, :quiz_parts3, :quiz_parts4 )
     end
 end
