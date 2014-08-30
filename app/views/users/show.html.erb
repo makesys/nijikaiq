@@ -1,6 +1,8 @@
 <%- model_class = User -%>
 <div class="page-header">
-    <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+    <%# <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+    <h1><%=t '.title', :default => "ユーザ専用ページ"%></h1>
+
 </div>
 
 <dl class="dl-horizontal">
@@ -10,7 +12,7 @@
     <dd><%= @user.email %></dd>
 </dl>
 
-<h3>あなたが作成したプロジェクト一覧</h3>
+<h3>プロジェクト一覧</h3>
 <% if !@user.projects.empty? %>
     <table class="table table-striped">
         <thead>
@@ -32,7 +34,7 @@
         </tbody>
     </table>
 <% else %>
-    <h5>プロジェクトがありません。「新規作成」ボタンからプロジェクトを作成させてください。</h5>
+    <h5>表示するプロジェクトがありません。「新規作成」ボタンからプロジェクトを作成させてください。</h5>
 
 <% end %>
 <h3><%= link_to "新規作成", new_project_path(:user_id=>@user.id), :class => 'btn' %></h3>

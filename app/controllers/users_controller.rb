@@ -29,7 +29,7 @@ class UsersController < ApplicationController
         Rails.logger.debug "--------------------------"
         Rails.logger.debug @user.inspect
         Rails.logger.debug "--------------------------"
-
+        binding.pry
         if @user.save
             Rails.logger.debug "--------------------------"
             Rails.logger.debug "成功"
@@ -103,7 +103,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-        params.require(:user).permit(:name, :fname, :lname, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :nickname, :fname, :lname, :email, :password, :password_confirmation)
     end
 
 
