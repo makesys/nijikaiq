@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
         @project.user = User.find(params[:user_id])
         @project.quizzes.build
     end
+
     def create
         @project = Project.new(project_params)
         respond_to do |format|

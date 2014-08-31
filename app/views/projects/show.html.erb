@@ -1,6 +1,6 @@
 <%- model_class = Project -%>
 <div class="page-header">
-    <h1>プロジェクト詳細画面<%#=t '.title', :default => model_class.model_name.human.titleize %></h1>
+    <h3>プロジェクト詳細画面<%#=t '.title', :default => model_class.model_name.human.titleize %></h3>
 </div>
 
 <dl class="dl-horizontal">
@@ -10,7 +10,7 @@
     <dd><%= @project.title %></dd>
 </dl>
 
-<h3> あなたの作成したクイズ</h3>
+<h4> あなたの作成したクイズ</h4>
 <% if @members.empty? %>
     <h5>クイズがありません。新規作成ボタンでクイズを作成してください。</h5>
 <% else %>
@@ -19,8 +19,8 @@
             <th>ID</th>
             <th>タイトル</th>
             <th>クイズ本文</th>
-            <th>created at</th>
-            <th>updated at</th>
+            <th>新規登録日時</th>
+            <th>最終更新日時</th>
         </thead>
 
         <tbody>

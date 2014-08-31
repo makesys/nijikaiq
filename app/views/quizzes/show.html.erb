@@ -1,7 +1,6 @@
 <%- model_class = Quiz -%>
 <div class="page-header">
-    <h1>クイズ詳細画面</h1>
-    <h2><%= @quiz.quiz_title%></h2>
+    <h3>クイズ詳細画面</h3>
 </div>
 
 <table class="table table-bordered">
@@ -11,6 +10,10 @@
             <th><strong>タイトル<%#= model_class.human_attribute_name(:quiz_title) %></strong></th>
             <th><strong>作成者<%#= model_class.human_attribute_name(:owner_user_id) %></strong></th>
             <th><strong>クイズ本文<%#= model_class.human_attribute_name(:quiz_text) %></strong></th>
+            <th><strong>選択肢A</strong></th>
+            <th><strong>選択肢B</strong></th>
+            <th><strong>選択肢C</strong></th>
+            <th><strong>選択肢D</strong></th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +22,10 @@
             <td><%= @quiz.quiz_title %></td>
             <td><%= @quiz.owner_user_id %></td>
             <td><%= @quiz.quiz_text %></td>
+            <td><%= @quiz.quiz_parts1 %></td>
+            <td><%= @quiz.quiz_parts2 %></td>
+            <td><%= @quiz.quiz_parts3 %></td>
+            <td><%= @quiz.quiz_parts4 %></td>
         </tr>
     </tbody>
 </table>

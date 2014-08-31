@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     # GET /users.json
     def index
         @users = User.all
+        binding.pry
+        require 'net/http'
+        result = Net::HTTP.get('makesys.net', '/')
+        p result
     end
 
     # GET /users/1

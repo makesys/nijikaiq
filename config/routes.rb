@@ -4,6 +4,11 @@ Nijikaiq::Application.routes.draw do
     get "top/help"
     get "top/aboutus"
     get "users/login"
+    get "slides/quiz/:id" => "slides#quiz"
+    get "slides/top"
+    get "slides/index"
+    get "slides/answer"
+    post "slides/answer"
     resources :projects
     resources :quizzes
     resources :users
