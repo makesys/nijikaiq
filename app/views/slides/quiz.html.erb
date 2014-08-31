@@ -1,0 +1,31 @@
+<h2 class="text-center">第１問</h2>
+<h3 class="text-center"><%= @quiz.quiz_title%></h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th colspan="2"><%= @quiz.quiz_text%></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>選択肢A : <%= @quiz.quiz_parts1%></td>
+            <td>選択肢B : <%= @quiz.quiz_parts2%></td>
+        </tr>
+        <tr>
+            <td>選択肢C : <%= @quiz.quiz_parts3%></td>
+            <td>選択肢D : <%= @quiz.quiz_parts4%></td>
+        </tr>
+    </tbody>
+</table>
+
+<%= form_tag('/slides/answer') do  %>
+    <p><%= @quiz.quiz_text%></p>
+    <%= radio_button 'answer_select', 'index', 'A' %><%= @quiz.quiz_parts1%>
+    <%= radio_button 'answer_select', 'index', 'B' %><%= @quiz.quiz_parts2%>
+    <%= radio_button 'answer_select', 'index', 'C' %><%= @quiz.quiz_parts3%>
+    <%= radio_button 'answer_select', 'index', 'D' %><%= @quiz.quiz_parts4%>
+    </br>
+    <%= submit_tag 'ファイナルアンサー', :class => 'btn btn-warning' %>
+<%end%>
+
+あなたは<%= @ansxx%>を選びました。
