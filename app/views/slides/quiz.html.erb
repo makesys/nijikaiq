@@ -18,14 +18,31 @@
     </tbody>
 </table>
 
+
 <%= form_tag('/slides/answer') do  %>
-    <p><%= @quiz.quiz_text%></p>
-    <%= radio_button 'answer_select', 'index', 'A' %><%= @quiz.quiz_parts1%>
-    <%= radio_button 'answer_select', 'index', 'B' %><%= @quiz.quiz_parts2%>
-    <%= radio_button 'answer_select', 'index', 'C' %><%= @quiz.quiz_parts3%>
-    <%= radio_button 'answer_select', 'index', 'D' %><%= @quiz.quiz_parts4%>
-    </br>
-    <%= submit_tag 'ファイナルアンサー', :class => 'btn btn-warning' %>
+    <h3><%= @quiz.quiz_text%></h3>
+    <div class="row">
+        <div class="span6 text-center text-center">
+            <%= radio_button 'answer_select', 'index', 'A' %><%= @quiz.quiz_parts1%>
+        </div>
+        <div class="span6 text-center">
+            <%= radio_button 'answer_select', 'index', 'B' %><%= @quiz.quiz_parts2%>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6 text-center">
+            <%= radio_button 'answer_select', 'index', 'C' %><%= @quiz.quiz_parts3%>
+        </div>
+        <div class="span6 text-center">
+            <%= radio_button 'answer_select', 'index', 'D' %><%= @quiz.quiz_parts4%>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12 text-right">
+            <%= submit_tag 'ファイナルアンサー', :class => 'btn btn-small btn-warning' %>
+        </div>
+    </div>
 <%end%>
 
 あなたは<%= @ansxx%>を選びました。
+
