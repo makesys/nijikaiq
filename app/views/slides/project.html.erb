@@ -1,0 +1,17 @@
+<%- model_class = Project -%>
+<div class="page-header">
+    <h3>クイズ実行画面</h3>
+</div>
+
+
+<dl class="dl-horizontal">
+    <dt><strong>ID:</strong></dt>
+    <dd><%= @project.id %></dd>
+    <dt><strong>タイトル:</strong></dt>
+    <dd><%= @project.title %></dd>
+    <dt><strong>説明:</strong></dt>
+    <dd><%= @project.text%></dd>
+</dl>
+<h3><%= link_to "開始！！", {:controller=>"slides",:action=>"quiz",:id=>@project.id},{:class => 'btn'} %></h3>
+
+
