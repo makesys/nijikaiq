@@ -12,12 +12,13 @@
     <% end %>
 
     <div class="field">
-        <%#= f.label :title %><br>
-        プロジェクトタイトル<br/>
+        <h4>タイトル</h4>
         <%= f.text_field :title %>
+        <h4>プロジェクト説明</h4>
+        <%= f.text_field :text %>
         <%= f.hidden_field :user_id, :value => @project.user.id %>
     </div>
     <div class="actions">
-        <%= f.submit %>
+        <%= f.submit '作成', :class => 'btn btn-info' %>
     </div>
 <% end %>

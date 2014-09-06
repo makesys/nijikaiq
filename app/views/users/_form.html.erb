@@ -4,12 +4,7 @@
     <%= f.input :email %>
     <%= f.input :password%>
     <%= f.input :password_confirmation%>
-    <div class="form-actions">
         <%= f.button :submit, :class => 'btn-primary' %>
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             top_home_path, :class => 'btn' %>
-        <% if @user.errors.any? %>
-            <%= @user.errors.messages[:password][0] %>
-        <% end %>
-    </div>
 <% end %>

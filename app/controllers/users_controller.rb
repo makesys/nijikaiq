@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_filter :authorize, :except=>:login
-
+    before_filter :authorize, :except=>[:login,:create,:new]
     
     # GET /users
     # GET /users.json
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
             Rails.logger.debug "--------------------------"
             Rails.logger.debug "成功"
             Rails.logger.debug "--------------------------"
-            flash[:success] = "Welcome to the Sample App!"
+            flash[:success] = "NIJIKAIQへようこそ!"
             redirect_to @user
         else
             Rails.logger.debug "--------------------------"

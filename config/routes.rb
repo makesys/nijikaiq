@@ -7,8 +7,10 @@ Nijikaiq::Application.routes.draw do
     get "slides/quiz/:id" => "slides#quiz"
     get "slides/top"
     get "slides/index"
-    get "slides/answer"
     post "slides/answer"
+    get "slides/project"
+    get "quizzes/updateorder/:id" => "quizzes#updateorder"
+    get "slides/nextquiz"
     resources :projects
     resources :quizzes
     resources :users

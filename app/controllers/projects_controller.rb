@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+    require 'securerandom'
     before_action :set_project, only: [:show, :edit, ]
     before_filter :authorize
 
@@ -9,6 +10,7 @@ class ProjectsController < ApplicationController
     end
 
     def show
+        @max = NUM_QUIZ.to_i
         @project = Project.find(params[:id])
         @members = @project.quizzes
         session[:project_id]=params[:id]
@@ -25,6 +27,7 @@ class ProjectsController < ApplicationController
 
     def create
         @project = Project.new(project_params)
+        @project.projcode = 5.times.map { SecureRandom.random_number(10) }.join
         respond_to do |format|
             if @project.save
                 format.html { redirect_to @project, notice: 'Sample was successfully created.' }

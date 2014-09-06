@@ -14,31 +14,22 @@
             <th><strong>選択肢B</strong></th>
             <th><strong>選択肢C</strong></th>
             <th><strong>選択肢D</strong></th>
+            <th><strong>解答</strong></th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><%= @quiz.id %></td>
             <td><%= @quiz.quiz_title %></td>
-            <td><%= @quiz.owner_user_id %></td>
+            <td><%= @username %></td>
             <td><%= @quiz.quiz_text %></td>
             <td><%= @quiz.quiz_parts1 %></td>
             <td><%= @quiz.quiz_parts2 %></td>
             <td><%= @quiz.quiz_parts3 %></td>
             <td><%= @quiz.quiz_parts4 %></td>
+            <td><%= @quiz.answer%></td>
         </tr>
     </tbody>
 </table>
 
-
-<div class="form-actions">
-    <%= link_to t('.back', :default => t("helpers.links.back")),
-        quizzes_path, :class => 'btn'  %>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-        edit_quiz_path(@quiz), :class => 'btn' %>
-    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-         quiz_path(@quiz),
-         :method => 'delete',
-         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-         :class => 'btn btn-danger' %>
-</div>
+<h3><%= link_to "プロジェクト詳細へ戻る", project_path(:id=>@project.id), :class => 'btn' %></h3>

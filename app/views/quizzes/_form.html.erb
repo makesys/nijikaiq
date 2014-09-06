@@ -1,35 +1,14 @@
-<%= form_for(@quiz) do |f| %>
-    <table class="table">
-        <tbody>
-            <tr>
-                <td>４択クイズタイトル</td>
-                <td><%= f.text_field :quiz_title %></td>
-            </tr>
-            <tr>
-                <td>問題文</td>
-                <td><%= f.text_area :quiz_text%></td>
-            </tr>
-            <tr>
-                <td>選択肢A</td>
-                <td><%= f.text_field :quiz_parts1 %></td>
-            </tr>
-            <tr>
-                <td>選択肢B</td>
-                <td><%= f.text_field :quiz_parts2 %></td>
-            </tr>
-            <tr>
-                <td>選択肢C</td>
-                <td><%= f.text_field :quiz_parts3 %></td>
-            </tr>
-            <tr>
-                <td>選択肢D</td>
-                <td><%= f.text_field :quiz_parts4 %></td>
-            </tr>
-        </tbody>
-    </table>
+<%= simple_form_for @quiz,  :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.input :quiz_title, label: '４択クイズタイトル'%>
+    <%= f.input :quiz_text, label: '問題文'%>
+    <%= f.input :quiz_parts1, label: '選択肢A'%>
+    <%= f.input :quiz_parts2, label: '選択肢B'%>
+    <%= f.input :quiz_parts3, label: '選択肢C'%>
+    <%= f.input :quiz_parts4, label: '選択肢D'%>
+    <%= f.input :answer, label: '解答', :collection => [['選択肢A',1],['選択肢B',2],['選択肢C',3],['選択肢D',4]] %>
     <%= f.hidden_field :quiz, :value => @quiz.owner_user_id %>
     <div class="form-actions">
-        <%= f.button :submit, :class => 'btn btn-warning' %>
-        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),                    quizzes_path, :class => 'btn' %>
+        <%= f.submit '登録', :class => 'btn btn-warning' %>
+        <%= link_to "キャンセル", project_path(@project.id), :class => 'btn' %>
     </div>
 <% end %>

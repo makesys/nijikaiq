@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505073759) do
+ActiveRecord::Schema.define(version: 20140906165528) do
 
   create_table "project_quizzes", force: true do |t|
     t.integer "project_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140505073759) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "projcode"
+    t.string   "text"
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
@@ -61,6 +63,8 @@ ActiveRecord::Schema.define(version: 20140505073759) do
     t.string   "quiz_parts10"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order"
+    t.string   "answer"
   end
 
   add_index "quizzes", ["quiztype_id"], name: "index_quizzes_on_quiztype_id", using: :btree

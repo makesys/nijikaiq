@@ -4,37 +4,49 @@
 </div>
 
 <dl class="dl-horizontal">
-    <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+    <dt><strong>ID:</strong></dt>
     <dd><%= @project.id %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+    <dt><strong>タイトル:</strong></dt>
     <dd><%= @project.title %></dd>
+    <dt><strong>説明:</strong></dt>
+    <dd><%= @project.text%></dd>
 </dl>
 
-<h4> あなたの作成したクイズ</h4>
+<h4>クイズ一覧</h4>
 <% if @members.empty? %>
     <h5>クイズがありません。新規作成ボタンでクイズを作成してください。</h5>
 <% else %>
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
         <thead>
             <th>ID</th>
             <th>タイトル</th>
             <th>クイズ本文</th>
-            <th>新規登録日時</th>
-            <th>最終更新日時</th>
+            <th>出題順番</th>
+            <th>クイズ更新</th>
         </thead>
 
         <tbody>
             <% @members.each do |quiz| %>
                 <tr>
                     <td><%= quiz.id %></td>
-                    <td><%= link_to quiz.quiz_title, quiz_path(quiz.id), :class => 'link' %></td>
+                    <td><%= quiz.quiz_title %></td>
                     <td><%= quiz.quiz_text %></td>
-                    <td><%= quiz.created_at %></td>
-                    <td><%= quiz.updated_at %></td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-<% end %>
-<h3><%= link_to "新しいクイズを作成", new_quiz_path(:project_id=>@project.id), :class => 'btn' %></h3>
+                    <td><%= quiz.order %><%= link_to "", {:controller => "quizzes", :action => "updateorder", :id => quiz.id}, {:class => 'icon-arrow-up'} %></td>
+                    <td><%= link_to "編集", edit_quiz_path(quiz.id), :class => 'btn btn-small' %>
+                        <%= link_to "削除", quiz_path(quiz.id), :method=>:delete,
+                            :confirm => 'この問題を削除して良いですか?',
+                            :class => 'btn btn-small btn-danger' %>
+                        </td>
+
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% end %>
+    <% if @members.size < @max%>
+        <%= link_to "新しいクイズを作成", new_quiz_path(:project_id=>@project.id), :class => 'btn' %>
+    <% else %>
+        <p>４問のクイズが登録済みです。新規クイズを作成する場合は、登録済みクイズを削除してください。</p>
+    <%end%>
+    <%= link_to "スライド実行", slides_project_path(:projcode=>@project.projcode), :class => 'btn' %>
 
