@@ -19,6 +19,7 @@
         <%= f.hidden_field :user_id, :value => @project.user.id %>
     </div>
     <div class="actions">
-        <%= f.submit '作成', :class => 'btn btn-info' %>
+        <%= f.submit '登録', :class => 'btn btn-info' %>
+        <%= link_to "キャンセル", user_path(@project.id), :class => 'btn' %>
     </div>
 <% end %>

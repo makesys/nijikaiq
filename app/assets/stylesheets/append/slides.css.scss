@@ -1,0 +1,27 @@
+// Place all the styles related to the slides controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$blue: #0066FF;
+$green: #5BB75B;
+
+table td{
+       border-collapse: separate;
+#       border-radius: 10px;
+       font-size:150%;
+       background-color:$green;
+       color:white;
+}
+.parts1{
+    background-color:red;
+height:350px;
+}
+.ans {
+color:pink;
+      font-size:200%;
+      background-color:red
+}
+
+body{
+    color:white;
+    background-color:$blue;
+}

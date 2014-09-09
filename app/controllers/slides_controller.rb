@@ -11,6 +11,10 @@ class SlidesController < ApplicationController
         @project = Project.find_by(projcode: tmp)
         # 今なん問目かを表す番号を初期化
         session[:order] = 1
+        if @project == nil
+            redirect_to "/slides/top"
+            flash[:error] = "プロジェクトコードが誤ってます。"
+        end
     end
 
     def quiz
@@ -27,7 +31,8 @@ class SlidesController < ApplicationController
         end
         # 該当のクイズがない場合は終了
         if @quiz == nil
-            redirect_to current_user
+            @ansFlg = 4
+           # redirect_to current_user
             #            @quiz.quiz_title = "問題が登録されていません。別のIDをご指定ください。"
         end
     end
@@ -40,18 +45,20 @@ class SlidesController < ApplicationController
         @project = Project.find_by_id(params[:project][:id])
         if params[:answer_select] != nil then
             if @quiz.answer == params[:answer_select][:index]
-                flash[:notice] ='seikai'
                 # 正解の場合
                 @ansFlg=1
+                flash[:error]=nil
             else
                 # 不正解の場合
                 @ansFlg=2 
+                flash[:error]="不正解です"
+                render action:'quiz' 
             end
         else
             # 解答が未入力の場合
             @ansFlg =3
+            render action:'quiz' 
         end
-        render action:'quiz' 
     end
     
     def nextquiz

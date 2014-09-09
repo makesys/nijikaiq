@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     # POST /users.json
     def create
         @user = User.new(user_params)
+        @user.icon = params[:user][:icon].read # バイナリセット
         Rails.logger.debug "--------------------------"
         Rails.logger.debug @user.inspect
         Rails.logger.debug "--------------------------"
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
             Rails.logger.debug "成功"
             Rails.logger.debug "--------------------------"
             flash[:success] = "NIJIKAIQへようこそ!"
+            session[:user_id] = @user.id
             redirect_to @user
         else
             Rails.logger.debug "--------------------------"
@@ -102,7 +104,7 @@ class UsersController < ApplicationController
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -4,11 +4,13 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <title>slides - SampleView</title>
         <%= stylesheet_link_tag    "application", :media => "all" %>
-        <%= javascript_include_tag "application" %>
+        <%= stylesheet_link_tag    "append/slides", :media => "all" %>
+        <%= javascript_include_tag "append/slides" %>
         <%= csrf_meta_tags %>
     </head>
     <body>
         <div class="container">
+            <%= bootstrap_flash %>
             <%= yield %>
         </div>
     </body>

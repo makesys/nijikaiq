@@ -1,11 +1,24 @@
 <h1>Nijikaiq</h1>
-<p>二次会ゲーム作成アプリへようこそ</p>
 <div>
-    <h5>結婚式二次会用のクイズを作成できるアプリです。</h5>
-    <h4>更新履歴</h4>
+    <h5>二次会ゲーム作成アプリへようこそ</h5>
+    <p>当サイトは結婚式二次会をはじめとした歓送迎会、忘年会などのパーティで使えるクイズを作成できるWEBサービスです。</p>
+    <p>４択クイズ、並べ替えクイズを作成し、スライド形式でクイズを出題・回答することができます。</p>
+    <hr/>
+
+    <h5>お知らせ</h5>
+    <p>2014.9.7 β版二次会Qオープン</p>
+    <p>aaaaaa</p>
+    <p>aaaaaa</p>
+    <p>aaaaaa</p>
+    <p>aaaaaa</p>
+    <p>aaaaaa</p>
+    <p>aaaaaa</p>
+    <hr/>
+
+    <h5>NijikaiQを利用する</h5>
     <% if signed_in? %>
-        ログイン中です
-        <li><%= link_to "Mypage", current_user %></li>
+        <p>現在ログイン中です。Mypageボタンからユーザ用ページに移動してください。</p>
+        <%= link_to "マイページへ", current_user, :class => 'btn'%>
     <% else %>
         
         <%= link_to "新規ユーザ登録", new_user_path, :class => 'btn' %>

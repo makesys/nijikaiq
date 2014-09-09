@@ -1,61 +1,49 @@
-<h2 class="text-center">第<%= @num%>問</h2>
-<h3 class="text-center"><%= @quiz.quiz_title%></h3>
-
-
-<%if @ansFlg == 2%>
-    <h1>不正解です</h1>
+<%if @ansFlg == 4%>
+    <h1>問題が全て終了しました。</h1>
+    <td><%= link_to "プロジェクトコード入力画面に戻る", "/slides/top", :class => 'btn btn-small' %></td>
 <%end%>
-<%if @ansFlg != 1%>
+
+<%if @ansFlg != 4%>
+    <h2 class="text-center">第<%= @num%>問　<%= @quiz.quiz_title%></h2>
     <%= form_tag('/slides/answer') do  %>
         <h3><%= @quiz.quiz_text%></h3>
-        <div class="row">
-            <div class="span6 text-center ">
-                <%= radio_button 'answer_select', 'index', '1' %><%= @quiz.quiz_parts1%>
-            </div>
-            <div class="span6 text-center">
-                <%= radio_button 'answer_select', 'index', '2' %><%= @quiz.quiz_parts2%>
-            </div>
+        <table class="table table-bordered" id="quiz">
+            <tbody>
+                <tr>
+                    <td width="10%">
+                        <div class="text-left">選択肢A</div>
+                    </td>
+                    <td width="40%">
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '1' %><%= @quiz.quiz_parts1%> </div>
+                    </td>
+                    <td width="10%">
+                        <div class="text-left">選択肢B</div>
+                    </td>
+                    <td width="40%">
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '2' %><%= @quiz.quiz_parts2%></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="10%">
+                        <div class="text-left">選択肢C</div>
+                    </td>
+                    <td width="40%">
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '3' %><%= @quiz.quiz_parts3%></div>
+                    </td>
+                    <td width="10%">
+                        <div class="text-left">選択肢D</div>
+                    </td>
+                    <td width="40%">
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '4' %><%= @quiz.quiz_parts4%></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="span12 text-right">
+            <%= hidden_field :quiz, :id%>
+            <%= hidden_field :project, :id%>
+            <%= submit_tag 'ファイナルアンサー', :class => 'btn btn-small btn-warning' %>
         </div>
-        <div class="row">
-            <div class="span6 text-center">
-                <%= radio_button 'answer_select', 'index', '3' %><%= @quiz.quiz_parts3%>
-            </div>
-            <div class="span6 text-center">
-                <%= radio_button 'answer_select', 'index', '4' %><%= @quiz.quiz_parts4%>
-            </div>
-        </div>
-        <div class="row">
-            <div class="span12 text-right">
-                <%= hidden_field :quiz, :id%>
-                <%= hidden_field :project, :id%>
-                <%= submit_tag 'ファイナルアンサー', :class => 'btn btn-small btn-warning' %>
-            </div>
-        </div>
-    <%end%>
-<%end%>
-<%if @ansFlg == 1%>
-    <%= form_tag('/slides/nextquiz', :method=>:get) do  %>
-        <h1>正解です！</h1>
-        <h3><%= @quiz.quiz_text%></h3>
-        <div class="row">
-            <div class="span6 text-center ">
-                <%= @quiz.quiz_parts1%>
-            </div>
-            <div class="span6 text-center">
-                <%= @quiz.quiz_parts2%>
-            </div>
-        </div>
-        <div class="row">
-            <div class="span6 text-center">
-                <%= @quiz.quiz_parts3%>
-            </div>
-            <div class="span6 text-center text-error">
-                <%= @quiz.quiz_parts4%>
-            </div>
-        </div>
-        <%= hidden_field :quiz, :id%>
-        <%= hidden_field :project, :id%>
-        <%= submit_tag '次の問題へ', :class => 'btn btn-small btn-warning' %>
     <%end%>
 <%end%>
 

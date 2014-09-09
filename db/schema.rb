@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906165528) do
+ActiveRecord::Schema.define(version: 20140907120816) do
 
   create_table "project_quizzes", force: true do |t|
     t.integer "project_id"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140906165528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
+    t.binary   "icon",            limit: 16777215
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree

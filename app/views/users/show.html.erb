@@ -12,13 +12,13 @@
 
 <h4>プロジェクト一覧</h4>
 <% if !@user.projects.empty? %>
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
         <thead>
             <th>ID</th>
             <th>プロジェクトタイトル</th>
+            <th>プロジェクト説明</th>
             <th>プロジェクトコード</th>
-            <th>新規作成日時</th>
-            <th>最終更新日時</th>
+            <th>編集</th>
         </thead>
 
         <tbody>
@@ -26,9 +26,13 @@
                 <tr>
                     <td><%= proj.id %></td>
                     <td><%= link_to proj.title, project_path(proj.id), :class => 'link' %></td>
+                    <td><%= proj.text%></td>
                     <td><%= proj.projcode %></td>
-                    <td><%= proj.created_at %></td>
-                    <td><%= proj.updated_at %></td>
+                    <td><%= link_to "編集", edit_project_path(proj.id), :class => 'btn btn-small' %>
+                        <%= link_to "削除", project_path(proj.id), :method=>:delete,
+                            :confirm => 'このプロジェクトを削除して良いですか?',
+                            :class => 'btn btn-small btn-danger' %>
+                        </td>
                 </tr>
             <% end %>
         </tbody>
