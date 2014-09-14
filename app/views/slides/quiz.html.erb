@@ -10,17 +10,17 @@
         <table class="table table-bordered" id="quiz">
             <tbody>
                 <tr>
-                    <td width="10%">
+                    <td width="10%" id="abc">
                         <div class="text-left">選択肢A</div>
                     </td>
                     <td width="40%">
-                        <div class="text-center"><%= radio_button 'answer_select', 'index', '1' %><%= @quiz.quiz_parts1%> </div>
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '1', :class=>'radio'%><%= @quiz.quiz_parts1%> </div>
                     </td>
                     <td width="10%">
                         <div class="text-left">選択肢B</div>
                     </td>
                     <td width="40%">
-                        <div class="text-center"><%= radio_button 'answer_select', 'index', '2' %><%= @quiz.quiz_parts2%></div>
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '2', :class=>'radio'%><%= @quiz.quiz_parts2%></div>
                     </td>
                 </tr>
                 <tr>
@@ -28,13 +28,13 @@
                         <div class="text-left">選択肢C</div>
                     </td>
                     <td width="40%">
-                        <div class="text-center"><%= radio_button 'answer_select', 'index', '3' %><%= @quiz.quiz_parts3%></div>
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '3', :class=>'radio'%><%= @quiz.quiz_parts3%></div>
                     </td>
                     <td width="10%">
                         <div class="text-left">選択肢D</div>
                     </td>
                     <td width="40%">
-                        <div class="text-center"><%= radio_button 'answer_select', 'index', '4' %><%= @quiz.quiz_parts4%></div>
+                        <div class="text-center"><%= radio_button 'answer_select', 'index', '4', :class=>'radio' %><%= @quiz.quiz_parts4%></div>
                     </td>
                 </tr>
             </tbody>

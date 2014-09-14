@@ -2,13 +2,24 @@
 //= require jquery_ujs
 
 $(function() {
-        $("#answer_select_index_1").click(function(event){
-            alert('test');
+        $("[class^='radio']").click(function(event){
             event.stopPropagation();
+            var list = [];
+            resetRadioStyle();
+            $(this).parent().addClass("answerSelect");
             });
-        $("#answer_select_index_1").parent('td').click(function(){
-            alert('test');
-            $(this).children('[name^="chk_"]').trigger('click');
+
+        $("[class^='radio']").parent().click(function(){
+            $(this).children().trigger('click');
+            resetRadioStyle();
+            $(this).addClass("answerSelect");
             });
         });
 
+function resetRadioStyle(){
+    var list = [];
+    $(".radio").each(function() {
+            $(this).removeClass("answerSelect");
+            list.push($(this).parent().removeClass("answerSelect"));
+            });
+}

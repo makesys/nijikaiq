@@ -5,23 +5,24 @@ $blue: #0066FF;
 $green: #5BB75B;
 
 table td{
-       border-collapse: separate;
-#       border-radius: 10px;
-       font-size:150%;
-       background-color:$green;
-       color:white;
+    border-collapse: separate;
+    font-size:150%;
+    background-color:$green;
+color:white;
 }
-.parts1{
-    background-color:red;
-height:350px;
-}
+
 .ans {
 color:pink;
-      font-size:200%;
+      font-size:150%;
       background-color:red
+}
+.answerSelect{
+color:red;
+font-size:150%;
+
 }
 
 body{
-    color:white;
-    background-color:$blue;
+color:white;
+      background-color:$blue;
 }

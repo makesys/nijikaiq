@@ -32,8 +32,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: nijikaiqdb_production
+  database: nijikaiqdb_pub
   pool: 5
   username: rails_pub
   password: rails_pub
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock

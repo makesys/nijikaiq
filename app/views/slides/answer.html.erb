@@ -1,32 +1,41 @@
 <h1>正解です！！</h1>
+<% if @quiz.answer == '1' then %>
+    <% ans1 = 'ans'%>
+<%elsif @quiz.answer == '2' then %>
+    <% ans2 = 'ans'%>
+<%elsif @quiz.answer == '3' then %>
+    <% ans3 = 'ans'%>
+<%elsif @quiz.answer == '4' then %>
+    <% ans4 = 'ans'%>
+<% end %>
 <%= form_tag('/slides/nextquiz', :method=>:get) do  %>
     <table class="table table-bordered">
         <tbody>
             <tr>
-                <td width="10%">
+                <td width="10%" class="<%=ans1%>">
                     <div class="text-left">選択肢A</div>
                 </td>
-                <td width="40%">
+                <td width="40%" class="<%=ans1%>">
                     <div class="text-center"><%= @quiz.quiz_parts1%></div>
                 </td>
-                <td width="10%">
-                    <div class="text-left">選択肢A</div>
+                <td width="10%" class="<%=ans2%>">
+                    <div class="text-left">選択肢B</div>
                 </td>
-                <td class="info" width="40%">
+                <td width="40%" class="<%=ans2%>">
                     <div class="text-center"><%= @quiz.quiz_parts2%></div>
                 </td>
             </tr>
             <tr>
-                <td width="10%">
-                    <div class="text-left">選択肢A</div>
+                <td width="10%" class="<%=ans3%>">
+                    <div class="text-left">選択肢C</div>
                 </td>
-                <td width="40%" style="color:pink;font-size:200%;background-color:red">
+                <td width="40%" class="<%=ans3%>">
                     <div class="text-center"><%= @quiz.quiz_parts3%></div>
                 </td>
-                <td width="10%">
-                    <div class="text-left">選択肢A</div>
+                <td width="10%" class="<%=ans4%>">
+                    <div class="text-left">選択肢D</div>
                 </td>
-                <td width="40%">
+                <td width="40%" class="<%=ans4%>">
                     <div class="text-center"><%= @quiz.quiz_parts4%></div>
                 </td>
             </tr>
